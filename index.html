@@ -1,26 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em busca da cidade perdida</title>
+    <title>Aventura Interativa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-          <div class="passo" id="passo-0">
-             <p>Um dia desses, dentro de um livro da biblioteca da escola, eu descobri uma carta antiga sobre uma cidade perdida, escondida por riquezas e belezas naturais. Nessa carta, a autora deixa algumas pistas para encontrar essa cidade e eu decidi segui-las!</p>
-          <button class="btn-proximo"data-prximo="1">Rio de janeiro</button>
-          <button class="btn-proximo"data-prximo="2">Pernanbuco</button>
-          </div>
-        <div class="passo" id="passo-1">
-             <p>Um dia desses, dentro de um livro da biblioteca da escola, eu descobri uma carta antiga sobre uma cidade perdida, escondida por riquezas e belezas naturais. Nessa carta, a autora deixa algumas pistas para encontrar essa cidade e eu decidi segui-las!</p>
-          <button class="btn-proximo"data-prximo="3">Rio de janeiro</button>
-          <button class="btn-proximo"data-prximo="4">Pernanbuco</button>
-          </div>
+    <div id="aventura">
+        <h1>Aventura Interativa</h1>
+        <p id="texto">Você está em uma floresta misteriosa, com duas escolhas à sua frente...</p>
+        <button id="botao1">Entrar na floresta</button>
+        <button id="botao2">Ir para a cidade</button>
+    </div>
 
-    </main>
+    <script>
+        // Obtendo os elementos HTML
+        const texto = document.getElementById("texto");
+        const botao1 = document.getElementById("botao1");
+        const botao2 = document.getElementById("botao2");
 
-        
-        
+        // Função para a escolha inicial
+        function floresta() {
+            texto.innerHTML = "Você entrou na floresta. O que deseja fazer agora?";
+            botao1.innerHTML = "Caminhar mais fundo";
+            botao2.innerHTML = "Voltar para a cidade";
+            botao1.onclick = florestaProfunda;
+            botao2.onclick = cidade;
+        }
+
+        // Função para caminhar mais fundo na floresta
+        function florestaProfunda() {
+            texto.innerHTML = "Você encontra um dragão na floresta!";
+            botao1.innerHTML = "Lutar";
+            botao2.innerHTML = "Fugir";
+            botao1.onclick = lutarDragao;
+            botao2.onclick = fugir;
+        }
+
+        // Função para explorar a cidade
+        function cidade() {
+            texto.innerHTML = "Você chega à cidade e encontra um mercador.";
+            botao1.innerHTML = "Comprar poção";
+            botao2.innerHTML = "Sair da cidade";
+            botao1.onclick = comprarPocao;
+            botao2.onclick = sair;
+        }
+
+        // Função para lutar contra o dragão
+        function lutarDragao() {
+            texto.innerHTML = "Você derrotou o dragão! Parabéns!";
+            botao1.style.display = "none";
+            botao2.style.display = "none";
+        }
+
+        // Função para fugir do dragão
+        function fugir() {
+            texto.innerHTML = "Você fugiu da floresta e voltou para a cidade.";
+            botao1.style.display = "none";
+            botao2.style.display = "none";
+        }
+
+        // Função para comprar poção
+        function comprarPocao() {
+            texto.innerHTML = "Você comprou uma poção mágica.";
+            botao1.style.display = "none";
+            botao2.style.display = "none";
+        }
+
+        // Função para sair da cidade
+        function sair() {
+            texto.innerHTML = "Você saiu da cidade e encontrou uma nova estrada.";
+            botao1.style.display = "none";
+            botao2.style.display = "none";
+        }
+
+        // Inicia a aventura
+        botao1.onclick = floresta;
+        botao2.onclick = cidade;
+    </script>
 </body>
 </html>
+
+
